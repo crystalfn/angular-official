@@ -17,4 +17,8 @@
 
 ## main（内容）
 - 编写页面内容，可以会用到 NzCardModule 等 Module 来实现页面显示内容；
-- 使用 NzStepsModule 实现 main 中侧边栏的实时显示。
+- 使用 NzStepsModule 实现 main 中侧边栏的实时显示;
+
+## footer
+- html 和 css 样式编写，显示如官网所示的 footer；
+- 关于多语言切换问题：暂定使用 i18n。
