@@ -15,6 +15,7 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzCardModule } from 'ng-zorro-antd/card';
 
 import { HeaderComponent } from './header/header.component';
 import { AsideComponent } from './aside/aside.component';
@@ -37,7 +38,8 @@ registerLocaleData(zh);
     NzButtonModule,
     NzInputModule,
     NzIconModule,
-    NzMenuModule
+    NzMenuModule,
+    NzCardModule,
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]

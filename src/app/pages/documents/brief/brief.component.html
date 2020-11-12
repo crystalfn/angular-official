@@ -1,0 +1,30 @@
+<div class="documents-brief">
+  <section class="documents-brief-item">
+    <h1>Angular 文档简介</h1>
+    <p>Angular 是一个应用设计框架与开发平台，用于创建高效、复杂、精致的单页面应用。</p>
+    <p>这份 Angular 文档会帮助你学习和使用 Angular 框架与开发平台，从你的第一个应用开始，一直到优化复杂的企业级单页面应用。 这些教程和指南中都包含可下载的范例，以加速你的学习。</p>
+  </section>
+
+  <section class="documents-brief-item">
+    <h1>基本假设</h1>
+    <p>
+      本文档假设你已经熟悉了 HTML，CSS，JavaScript 和来自 最新标准 的一些知识，比如 类 和 模块。 下列代码范例都是用最新版本的 TypeScript 写的。 大多数 Angular 代码都只能用最新的 JavaScript 编写，它会用 类型 实现依赖注入，还会用装饰器来提供元数据。
+    </p>
+  </section>
+
+  <section class="documents-brief-item">
+    <h1>私有化部署本文档（译者）</h1>
+    <p>
+      有些企业内部的防火墙比较严格，如果无法打开 https://angular.cn，你可以在企业内部进行私有化部署。步骤如下：
+    </p>
+    <p>
+      本文档的预编译版本位于 Github 上，如果你想进行私有化部署，请把它 Clone 下来，在 nginx 等服务器上按照静态网站的形式做部署即可，除此之外不需要任何服务端环境。
+    </p>
+    <p>
+      以 Nginx 为例，你需要在 nginx 上做如下改动：
+    </p>
+    <p>
+      注意其中的 $uri.html，这是本文档相对于常规 Angular 应用的主要差别，因为本文档进行了预先渲染（Prerender），这项工作可以让你在不需要 Node 服务器的情况下获得等同于服务端渲染的体验改善。
+    </p>
+  </section>
+</div>
