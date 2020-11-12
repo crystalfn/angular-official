@@ -14,15 +14,18 @@ import { zh_CN } from 'ng-zorro-antd/i18n';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzMenuModule } from 'ng-zorro-antd/menu';
 
 import { HeaderComponent } from './header/header.component';
+import { AsideComponent } from './aside/aside.component';
 
 registerLocaleData(zh);
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+      AsideComponent
    ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ registerLocaleData(zh);
 
     NzButtonModule,
     NzInputModule,
-    NzIconModule
+    NzIconModule,
+    NzMenuModule
   ],
   providers: [{ provide: NZ_I18N, useValue: zh_CN }],
   bootstrap: [AppComponent]
