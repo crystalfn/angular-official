@@ -6,11 +6,14 @@
 
   .app-main {
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100%;
+    margin-top: 64px;
 
     .app-aside {
-      position: relative;
+      position: fixed;
+      left: 0;
       z-index: 1;
       overflow: auto;
 
@@ -21,19 +24,23 @@
       box-shadow: 5px 0 10px #ccc;
       background-color: white;
     }
-  }
 
-  .app-footer {
-    position: fixed;
-    bottom: 0;
+    .app-page {
+      margin-left: 260px;
+      margin-bottom: 20px;
+      height: 100%;
+      padding: 20px 30px;
+    }
 
-    width: 100%;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .app-footer {
+      width: 100%;
+      padding: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-    background-color: #1C5BB3;
-    color: white;
+      background-color: #1C5BB3;
+      color: white;
+    }
   }
 }

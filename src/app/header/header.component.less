@@ -12,8 +12,27 @@ ul {
   justify-content: space-between;
   align-items: center;
   height: 64px;
-  padding: 0 16px;
+  width: 100%;
+  padding-right: 16px;
+  position: fixed;
+  top: 0;
+  z-index: 2;
   background-color: @header-background-color;
+
+  .header-menu {
+    position: fixed;
+    left: 0;
+    font-size: 20px;
+    line-height: 64px;
+    width: 60px;
+
+    color: @header-color;
+    cursor: pointer;
+  }
+
+  .nav {
+    margin-left: 60px;
+  }
 }
 
 .home-img {
