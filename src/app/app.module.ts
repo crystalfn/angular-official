@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { DocumentsModule } from './pages/documents/documents.module';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,7 +27,7 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     HeaderComponent,
-      AsideComponent
+    AsideComponent
    ],
   imports: [
     BrowserModule,
@@ -34,6 +35,7 @@ registerLocaleData(zh);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    DocumentsModule,
 
     NzButtonModule,
     NzInputModule,
