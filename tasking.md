@@ -14,11 +14,13 @@
 ## aside（侧边栏）
 - 使用 NzMenuModule 实现侧边栏导航菜单显示；
 - 使用路由实现页面跳转；
+- 实现侧边栏的缩放；
 
 ## main（内容）
 - 编写页面内容，可以会用到 NzCardModule 等 Module 来实现页面显示内容；
+- 使用 HttpClient 获取数据展示在页面上；
 - 使用 NzStepsModule 实现 main 中侧边栏的实时显示;
 
 ## footer
 - html 和 css 样式编写，显示如官网所示的 footer；
-- 关于多语言切换问题：暂定使用 i18n。
+- 关于多语言切换问题：使用 i18n。
