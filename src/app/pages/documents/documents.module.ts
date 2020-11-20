@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DocumentsComponent } from './documents.component';
 
+import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+
+import { DocumentsComponent } from './documents.component';
 import { BriefComponent } from './brief/brief.component';
+import { BasicKnowledgeComponent } from './basicKnowledge/basicKnowledge.component'
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    NzTableModule,
+    NzDividerModule,
   ],
   declarations: [
     DocumentsComponent,
-    BriefComponent
+    BriefComponent,
+    BasicKnowledgeComponent,
   ]
 })
 export class DocumentsModule { }

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { DocumentsModule } from './pages/documents/documents.module';
+import { NgZorroAntdModule } from 'ng-zorro-antd';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { NzCardModule } from 'ng-zorro-antd/card';
 
 import { HeaderComponent } from './header/header.component';
 import { AsideComponent } from './aside/aside.component';
+import { CharacterComponent } from './pages/character/character.component';
 
 registerLocaleData(zh);
 
@@ -27,7 +29,8 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     HeaderComponent,
-    AsideComponent
+    AsideComponent,
+    CharacterComponent
    ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ registerLocaleData(zh);
     HttpClientModule,
     BrowserAnimationsModule,
     DocumentsModule,
+    NgZorroAntdModule,
 
     NzButtonModule,
     NzInputModule,

@@ -14,7 +14,7 @@ export class BriefComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const url = "http://localhost:3000/brief";
+    const url: string = "http://localhost:3000/brief";
     this.http.get(url).subscribe(response => {
       this.briefs = response;
     })
