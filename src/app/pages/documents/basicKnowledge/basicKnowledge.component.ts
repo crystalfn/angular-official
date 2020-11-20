@@ -1,11 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-interface Person {
-  key: string;
-  name: string;
-  age: number;
-  address: string;
-}
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-basicKnowledge',
@@ -14,30 +8,15 @@ interface Person {
 })
 
 export class BasicKnowledgeComponent implements OnInit {
-  listOfData: any[] = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park'
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park'
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
-    }
-  ];
+  listOfPerson;
 
-  constructor() { }
+  constructor(public http: HttpClient) { }
 
   ngOnInit() {
+    const url = "http://localhost:3000/basicKnowledge";
+    this.http.get(url).subscribe(response => {
+      this.listOfPerson = response;
+    })
   }
 
 }
