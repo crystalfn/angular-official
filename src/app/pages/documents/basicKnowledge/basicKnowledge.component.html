@@ -29,7 +29,7 @@
   (nzOnCancel)="closeEditModal()"
   [nzFooter]="null"
 >
-  <form nz-form [formGroup]="validatePersonMessage" (ngSubmit)="updatePersonMessage()">
+  <form nz-form [formGroup]="validatePersonMessage">
     <nz-form-item>
       <nz-form-label [nzSm]="2" [nzXs]="24" ngFor="name">姓名</nz-form-label>
       <nz-form-control [nzSm]="22" [nzXs]="24" nzErrorTip="姓名不能为空！">
@@ -51,10 +51,12 @@
       </nz-form-control>
     </nz-form-item>
 
-    <nz-form-item>
+    <nz-form-item class="footer">
       <nz-form-control>
-        <button nz-button (click)="closeEditModal()">取消更改</button>
-        <button nz-button nzType="primary" [disabled]="!validatePersonMessage.valid">
+        <button class="cancleSubmit" nz-button (click)="closeEditModal()">取消更改</button>
+        <button nz-button nzType="primary"
+          (click)="updatePersonMessage()"
+          [disabled]="!validatePersonMessage.valid">
           确定更改
         </button>
       </nz-form-control>
