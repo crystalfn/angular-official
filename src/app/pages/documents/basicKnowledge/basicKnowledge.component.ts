@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-basicKnowledge',
@@ -10,19 +12,44 @@ import { HttpClient } from '@angular/common/http';
 export class BasicKnowledgeComponent implements OnInit {
   listOfPerson;
   isShowEdit: boolean = false;
-  isUpdateLoading: boolean = false;
+  validatePersonMessage: FormGroup;
+  url: string = "http://localhost:3000/basicKnowledge";
 
-  constructor(public http: HttpClient) { }
+  constructor(
+    public http: HttpClient,
+    private personMessage: FormBuilder,
+    private notification: NzNotificationService
+  ) { }
 
   ngOnInit() {
-    const url = "http://localhost:3000/basicKnowledge";
-    this.http.get(url).subscribe(response => {
+    this.getBasicKnowledgeData();
+    this.initValidatePersonMessage();
+  }
+
+  initValidatePersonMessage(): void {
+    this.validatePersonMessage = this.personMessage.group({
+      id: [null],
+      name: [null, [Validators.required]],
+      age: [null, [Validators.required]],
+      address: [null, [Validators.required]]
+    })
+  }
+
+  getBasicKnowledgeData(): void {
+    this.http.get(this.url).subscribe(response => {
       this.listOfPerson = response;
     })
   }
 
-  showEditModal(): void {
+  showEditModal(data): void {
     this.isShowEdit = true;
+
+    this.validatePersonMessage.patchValue({
+      id: data.id,
+      name: data.name,
+      age: data.age,
+      address: data.address
+    });
   }
 
   closeEditModal(): void {
@@ -30,12 +57,30 @@ export class BasicKnowledgeComponent implements OnInit {
   }
 
   updatePersonMessage(): void {
-    this.isUpdateLoading = true;
-    setTimeout(() => {
+    for (const i in this.validatePersonMessage.controls) {
+      this.validatePersonMessage.controls[i].markAsDirty();
+      this.validatePersonMessage.controls[i].updateValueAndValidity();
+    }
+
+    const dataJson = {
+      "id": this.validatePersonMessage.get("id").value,
+      "name": this.validatePersonMessage.get("name").value,
+      "age": this.validatePersonMessage.get("age").value,
+      "address": this.validatePersonMessage.get("address").value,
+    }
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+    };
+    this.http.put(this.url + '/' + dataJson.id, dataJson, httpOptions).subscribe(() => {
+      this.successNotification();
       this.isShowEdit = false;
-      this.isUpdateLoading = false;
-    }, 3000);
-    console.log("更新个人信息");
+      this.getBasicKnowledgeData();
+    })
+  }
+
+  successNotification(): void {
+    this.notification.success( '更新人员信息成功', '' );
   }
 
 }

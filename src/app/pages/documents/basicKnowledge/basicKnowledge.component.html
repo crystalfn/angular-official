@@ -1,10 +1,10 @@
 <nz-table #basicTable [nzData]="listOfPerson">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Address</th>
-      <th>Action</th>
+      <th>姓名</th>
+      <th>年龄</th>
+      <th>地址</th>
+      <th>操作</th>
     </tr>
   </thead>
   <tbody>
@@ -13,8 +13,8 @@
       <td>{{ data.age }}</td>
       <td>{{ data.address }}</td>
       <td>
-        <button nz-button nzType="link" (click)="showEditModal()">
-          Edit 一 {{ data.name }}
+        <button nz-button nzType="link" (click)="showEditModal(data)">
+          编辑 一 {{ data.name }}
         </button>
         <nz-divider nzType="vertical"></nz-divider>
         <button nz-button nzType="link">Delete</button>
@@ -27,8 +27,37 @@
   nzTitle="修改个人信息"
   [(nzVisible)]="isShowEdit"
   (nzOnCancel)="closeEditModal()"
-  [nzOkLoading]="isUpdateLoading"
-  (nzOnOk)="updatePersonMessage()"
+  [nzFooter]="null"
 >
-  <p>Modal Content</p>
+  <form nz-form [formGroup]="validatePersonMessage" (ngSubmit)="updatePersonMessage()">
+    <nz-form-item>
+      <nz-form-label [nzSm]="2" [nzXs]="24" ngFor="name">姓名</nz-form-label>
+      <nz-form-control [nzSm]="22" [nzXs]="24" nzErrorTip="姓名不能为空！">
+        <input nz-input formControlName="name" placeholder="请输入你的姓名！" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="2" [nzXs]="24" ngFor="name">年龄</nz-form-label>
+      <nz-form-control [nzSm]="22" [nzXs]="24" nzErrorTip="年龄不能为空！">
+        <input nz-input formControlName="age" placeholder="请输入你的年龄！" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-label [nzSm]="2" [nzXs]="24" ngFor="name">地址</nz-form-label>
+      <nz-form-control [nzSm]="22" [nzXs]="24" nzErrorTip="地址不能为空！">
+        <input nz-input formControlName="address" placeholder="请输入你的地址！" />
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button (click)="closeEditModal()">取消更改</button>
+        <button nz-button nzType="primary" [disabled]="!validatePersonMessage.valid">
+          确定更改
+        </button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
 </nz-modal>
