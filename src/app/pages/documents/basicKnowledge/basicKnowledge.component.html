@@ -13,10 +13,22 @@
       <td>{{ data.age }}</td>
       <td>{{ data.address }}</td>
       <td>
-        <a>Action 一 {{ data.name }}</a>
+        <button nz-button nzType="link" (click)="showEditModal()">
+          Edit 一 {{ data.name }}
+        </button>
         <nz-divider nzType="vertical"></nz-divider>
-        <a>Delete</a>
+        <button nz-button nzType="link">Delete</button>
       </td>
     </tr>
   </tbody>
 </nz-table>
+
+<nz-modal
+  nzTitle="修改个人信息"
+  [(nzVisible)]="isShowEdit"
+  (nzOnCancel)="closeEditModal()"
+  [nzOkLoading]="isUpdateLoading"
+  (nzOnOk)="updatePersonMessage()"
+>
+  <p>Modal Content</p>
+</nz-modal>

@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 
 export class BasicKnowledgeComponent implements OnInit {
   listOfPerson;
+  isShowEdit: boolean = false;
+  isUpdateLoading: boolean = false;
 
   constructor(public http: HttpClient) { }
 
@@ -17,6 +19,23 @@ export class BasicKnowledgeComponent implements OnInit {
     this.http.get(url).subscribe(response => {
       this.listOfPerson = response;
     })
+  }
+
+  showEditModal(): void {
+    this.isShowEdit = true;
+  }
+
+  closeEditModal(): void {
+    this.isShowEdit = false;
+  }
+
+  updatePersonMessage(): void {
+    this.isUpdateLoading = true;
+    setTimeout(() => {
+      this.isShowEdit = false;
+      this.isUpdateLoading = false;
+    }, 3000);
+    console.log("更新个人信息");
   }
 
 }
