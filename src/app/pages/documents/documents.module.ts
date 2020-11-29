@@ -13,7 +13,8 @@ import { NzNotificationModule } from 'ng-zorro-antd/notification';
 
 import { DocumentsComponent } from './documents.component';
 import { BriefComponent } from './brief/brief.component';
-import { BasicKnowledgeComponent } from './basicKnowledge/basicKnowledge.component'
+import { BasicKnowledgeComponent } from './basicKnowledge/basicKnowledge.component';
+import { EditBasicKnowledgeComponent } from './basicKnowledge/editBasicKnowledge/editBasicKnowledge.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { BasicKnowledgeComponent } from './basicKnowledge/basicKnowledge.compone
     DocumentsComponent,
     BriefComponent,
     BasicKnowledgeComponent,
+    EditBasicKnowledgeComponent
   ]
 })
 export class DocumentsModule { }

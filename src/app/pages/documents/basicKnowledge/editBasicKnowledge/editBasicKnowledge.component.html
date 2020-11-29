@@ -1,0 +1,33 @@
+<form nz-form [formGroup]="personMessage">
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSm]="2" [nzXs]="24" ngFor="name">姓名</nz-form-label>
+    <nz-form-control [nzSm]="22" [nzXs]="24" nzErrorTip="姓名不能为空！">
+      <input nz-input formControlName="name" placeholder="请输入你的姓名！" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSm]="2" [nzXs]="24" ngFor="name">年龄</nz-form-label>
+    <nz-form-control [nzSm]="22" [nzXs]="24" nzErrorTip="年龄不能为空！">
+      <input nz-input formControlName="age" placeholder="请输入你的年龄！" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzRequired [nzSm]="2" [nzXs]="24" ngFor="name">地址</nz-form-label>
+    <nz-form-control [nzSm]="22" [nzXs]="24" nzErrorTip="地址不能为空！">
+      <input nz-input formControlName="address" placeholder="请输入你的地址！" />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item class="footer">
+    <nz-form-control>
+      <button class="cancleSubmit" nz-button (click)="closeDialog(false)">取消更改</button>
+      <button nz-button nzType="primary"
+        (click)="submit(personMessage)"
+        [disabled]="!personMessage.valid">
+        确定更改
+      </button>
+    </nz-form-control>
+  </nz-form-item>
+</form>

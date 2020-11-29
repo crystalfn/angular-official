@@ -56,12 +56,11 @@ export class BasicKnowledgeComponent implements OnInit {
     this.isShowEdit = false;
   }
 
-  updatePersonMessage(): void {
-    for (const i in this.validatePersonMessage.controls) {
-      this.validatePersonMessage.controls[i].markAsDirty();
-      this.validatePersonMessage.controls[i].updateValueAndValidity();
-    }
+  closeEditDialog(visible: boolean) {
+    this.isShowEdit = visible;
+  }
 
+  onHandleUpdatePersonMessage(personMessage: FormGroup) {
     const dataJson = {
       "id": this.validatePersonMessage.get("id").value,
       "name": this.validatePersonMessage.get("name").value,
@@ -72,7 +71,9 @@ export class BasicKnowledgeComponent implements OnInit {
     const httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
-    this.http.put(this.url + '/' + dataJson.id, dataJson, httpOptions).subscribe(() => {
+    this.http
+      .put(this.url + '/' + dataJson.id, dataJson, httpOptions)
+      .subscribe(() => {
       this.successNotification();
       this.isShowEdit = false;
       this.getBasicKnowledgeData();
@@ -82,5 +83,4 @@ export class BasicKnowledgeComponent implements OnInit {
   successNotification(): void {
     this.notification.success( '更新人员信息成功', '' );
   }
-
 }
