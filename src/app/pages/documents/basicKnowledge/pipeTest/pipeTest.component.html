@@ -1,0 +1,9 @@
+<div>
+  <label>输入数字：</label>
+  <input [(ngModel)]="inputNumber">
+  <br>
+  <label>输入指数：</label>
+  <input [(ngModel)]="exponent">
+
+  <p>显示结果：{{ inputNumber | pipeTest: exponent }}</p>
+</div>

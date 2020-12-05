@@ -15,6 +15,9 @@ import { DocumentsComponent } from './documents.component';
 import { BriefComponent } from './brief/brief.component';
 import { BasicKnowledgeComponent } from './basicKnowledge/basicKnowledge.component';
 import { EditBasicKnowledgeComponent } from './basicKnowledge/editBasicKnowledge/editBasicKnowledge.component';
+import { PipeTestComponent } from './basicKnowledge/pipeTest/pipeTest.component';
+
+import { PipeTestPipe } from './basicKnowledge/pipeTest.pipe';
 
 @NgModule({
   imports: [
@@ -34,7 +37,9 @@ import { EditBasicKnowledgeComponent } from './basicKnowledge/editBasicKnowledge
     DocumentsComponent,
     BriefComponent,
     BasicKnowledgeComponent,
-    EditBasicKnowledgeComponent
+    EditBasicKnowledgeComponent,
+    PipeTestComponent,
+    PipeTestPipe
   ]
 })
 export class DocumentsModule { }

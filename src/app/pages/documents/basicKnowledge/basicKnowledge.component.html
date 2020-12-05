@@ -17,7 +17,7 @@
           编辑 一 {{ data.name }}
         </button>
         <nz-divider nzType="vertical"></nz-divider>
-        <button nz-button nzType="link">Delete</button>
+        <button nz-button nzType="link" (click)="showPipeTestModal()">pipe test</button>
       </td>
     </tr>
   </tbody>
@@ -34,4 +34,12 @@
     (closeEditDialog)="closeEditDialog($event)"
     (updatePersonMessage)="onHandleUpdatePersonMessage($event)"
   ></app-editBasicKnowledge>
+</nz-modal>
+
+<nz-modal
+  nzTitle="管道测试"
+  [(nzVisible)]="isShowPipeTestModal"
+  (nzOnCancel)="closePipeTestModal()"
+>
+  <app-pipeTest></app-pipeTest>
 </nz-modal>

@@ -12,6 +12,7 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
 export class BasicKnowledgeComponent implements OnInit {
   listOfPerson;
   isShowEdit: boolean = false;
+  isShowPipeTestModal = false;
   validatePersonMessage: FormGroup;
   url: string = "http://localhost:3000/basicKnowledge";
 
@@ -82,5 +83,13 @@ export class BasicKnowledgeComponent implements OnInit {
 
   successNotification(): void {
     this.notification.success( '更新人员信息成功', '' );
+  }
+
+  showPipeTestModal() {
+    this.isShowPipeTestModal = true;
+  }
+
+  closePipeTestModal() {
+    this.isShowPipeTestModal = false;
   }
 }
