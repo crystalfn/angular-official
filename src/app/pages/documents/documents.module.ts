@@ -16,6 +16,8 @@ import { BriefComponent } from './brief/brief.component';
 import { BasicKnowledgeComponent } from './basicKnowledge/basicKnowledge.component';
 import { EditBasicKnowledgeComponent } from './basicKnowledge/editBasicKnowledge/editBasicKnowledge.component';
 import { PipeTestComponent } from './basicKnowledge/pipeTest/pipeTest.component';
+import { ComponentComponent } from './component/component.component';
+import { ChildComponentComponent } from './component/childComponent/childComponent.component';
 
 import { PipeTestPipe } from './basicKnowledge/pipeTest.pipe';
 
@@ -39,7 +41,9 @@ import { PipeTestPipe } from './basicKnowledge/pipeTest.pipe';
     BasicKnowledgeComponent,
     EditBasicKnowledgeComponent,
     PipeTestComponent,
-    PipeTestPipe
+    ComponentComponent,
+    ChildComponentComponent,
+    PipeTestPipe,
   ]
 })
 export class DocumentsModule { }
